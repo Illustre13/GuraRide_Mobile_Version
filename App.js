@@ -1,15 +1,23 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import {name as appName} from './app.json';
+import { AppRegistry } from 'react-native';
+import AppStack from './navigation/AppStack';
+import AuthStack from './navigation/AuthStack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+ AppRegistry.registerComponent(appName, () => Hero_Section);
+const Stack = createNativeStackNavigator();
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <AppStack />
+      {/* <AuthStack /> */}
+    </NavigationContainer>
+    // <Hero_Section />
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
